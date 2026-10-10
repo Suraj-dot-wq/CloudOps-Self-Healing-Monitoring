@@ -19,6 +19,15 @@ An AWS EC2-based project that monitors Linux system resources and automatically 
 - Prometheus metrics collection and alert rules
 - Grafana infrastructure dashboard
 
+## Logging
+
+Runtime logs are stored locally on the EC2 instance under `logs/`.
+
+- `health_check.log` — CPU, memory, and disk health-check results.
+- `self_heal.log` — Service failure detection and recovery events.
+
+Generated logs are excluded from Git to avoid committing continuously changing runtime data.
+
 ## Project Structure
 - `scripts/` — Health checks, self-healing, and demo service
 - `monitoring/` — Monitoring configuration files
