@@ -7,3 +7,6 @@ logs/
 *.pem
 *.tfstate
 *.tfstate.*
+**/.terraform/
+.tfvars
+!.tfvars.example
