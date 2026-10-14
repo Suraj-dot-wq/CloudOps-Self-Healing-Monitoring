@@ -1,40 +1,96 @@
-# CloudOps — Automated Monitoring & Self-Healing
+# CloudOps — Self-Healing Infrastructure Monitoring
 
-## Overview
-An AWS EC2-based project that monitors Linux system resources and automatically recovers a stopped demo service.
+A hands-on Cloud & DevOps project that combines AWS infrastructure provisioning, Linux system monitoring, visualization, and automated service recovery.
 
-## Technologies
-- AWS EC2 and Ubuntu
-- Python and psutil
-- Linux cron and systemd
-- Prometheus
-- Node Exporter
-- Grafana
-- Alertmanager
+## 📌 Project Overview
 
-## Features
-- Automated CPU, memory, and disk health checks
-- Scheduled monitoring scripts
-- Self-healing of a stopped systemd service
-- Prometheus metrics collection and alert rules
-- Grafana infrastructure dashboard
+CloudOps demonstrates how to provision cloud infrastructure using Terraform, monitor Linux server health with Prometheus and Grafana, and automate service recovery using Python and systemd.
 
-## Logging
+The project focuses on infrastructure monitoring, resource visibility, health checks, and basic self-healing automation.
 
-Runtime logs are stored locally on the EC2 instance under `logs/`.
+## 🏗️ Architecture
 
-- `health_check.log` — CPU, memory, and disk health-check results.
-- `self_heal.log` — Service failure detection and recovery events.
+```text
+                AWS Cloud
+                    |
+               EC2 Instance
+                    |
+             Ubuntu Linux Server
+                    |
+          +---------+---------+
+          |                   |
+      Prometheus          Node Exporter
+          |                   |
+          +---- Metrics ------+
+                    |
+                 Grafana
+                    |
+           Dashboards & Alerts
 
-Generated logs are excluded from Git to avoid committing continuously changing runtime data.
+       Python Health-Check Script
+                    |
+          systemd Service Recovery
+```
 
-## Project Structure
-- `scripts/` — Health checks, self-healing, and demo service
-- `monitoring/` — Monitoring configuration files
-- `logs/` — Runtime logs generated on the EC2 instance
+## 🛠️ Tech Stack
 
-## Recovery Test
-Stopped the demo service manually and verified that the scheduled recovery script restarted it.
+- **Cloud:** AWS EC2, VPC, Subnets, Internet Gateway, Security Groups
+- **Infrastructure as Code:** Terraform
+- **Operating System:** Ubuntu Linux
+- **Monitoring:** Prometheus, Node Exporter
+- **Visualization & Alerting:** Grafana
+- **Automation:** Python, Bash, Cron, systemd
+- **Version Control:** Git and GitHub
 
-## Security
-Monitoring services should remain private. SSH access should be restricted to trusted IP addresses.
+## ⚙️ Key Implementations
+
+### 1. Infrastructure Provisioning
+- Provisioned AWS infrastructure using Terraform.
+- Configured networking resources, including a VPC, subnet, Internet Gateway, route table, and Security Group.
+- Deployed an Ubuntu EC2 instance for monitoring and automation.
+
+### 2. Infrastructure Monitoring
+- Installed and configured Prometheus to collect monitoring metrics.
+- Configured Node Exporter to expose Linux host metrics.
+- Created Grafana dashboards to visualize CPU, memory, and disk utilization.
+- Configured a high-CPU alert rule.
+
+### 3. Health Checks and Self-Healing
+- Developed Python automation for system health checks and logging.
+- Used Linux systemd to manage services.
+- Implemented a self-healing script to restart a demo service when it becomes inactive.
+- Tested service recovery by manually stopping the service and verifying that the recovery script restarted it.
+
+## 📸 Project Screenshots
+
+### 1. Grafana Monitoring Dashboard
+
+<img width="500" alt="Grafana Monitoring Dashboard" src="https://github.com/user-attachments/assets/583ac00f-9692-43fd-a3a8-7f3a157d08e7" />
+
+### 3. CloudOps Project Screenshot
+
+<img width="500" alt="CloudOps Project Screenshot" src="https://github.com/user-attachments/assets/55dc4f5d-f958-489b-b9b0-f87b1f5d22df" />
+
+## 🎯 Key Learnings
+
+- Provisioning AWS infrastructure using Terraform.
+- Configuring Linux monitoring with Prometheus and Node Exporter.
+- Building Grafana dashboards and alert rules.
+- Writing Python scripts for health checks and service recovery.
+- Troubleshooting Linux services and verifying recovery behavior.
+
+## 🚀 Future Improvements
+
+- Configure and test end-to-end alert notifications.
+- Improve automated recovery with retry limits and failure logging.
+- Add additional monitoring and alerting scenarios.
+- Automate infrastructure deployment through a CI/CD pipeline.
+
+## 👨‍💻 Author
+
+**Suraj Ghadage**
+
+Aspiring Cloud & DevOps Engineer | AWS | Linux | Terraform | Prometheus | Grafana
+
+- GitHub: https://github.com/Suraj-dot-wq
+- CloudOps Repository: https://github.com/Suraj-dot-wq/CloudOps-Self-Healing-Monitoring
