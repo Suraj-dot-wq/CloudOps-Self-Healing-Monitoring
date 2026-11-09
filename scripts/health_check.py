@@ -10,7 +10,7 @@ BASE_DIR = os.path.expanduser("~/cloudops")
 LOG_DIR = os.path.join(BASE_DIR, "logs")
 LOG_FILE = os.path.join(LOG_DIR, "health_check.log")
 
-# Alert thresholds (percent)
+# Alert thresholds
 CPU_THRESHOLD = 80
 RAM_THRESHOLD = 80
 DISK_THRESHOLD = 80
